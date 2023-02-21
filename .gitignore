@@ -1,0 +1,4 @@
+/.idea
+/redis/dump.rdb
+/docker/redis/dump.rdb
+/docker/mysql/*

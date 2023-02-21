@@ -1,0 +1,49 @@
+version: '3.4'
+
+services:
+  php81xdebug:
+    container_name: php81xdebug
+    build:
+      context: ./php81xdebug
+    ports:
+      - '9000:9000'
+    volumes:
+      - ../app:/var/www/app
+      - ./php81xdebug/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+      - ./php81xdebug/conf.d/error_reporting.ini:/usr/local/etc/php/conf.d/error_reporting.ini
+      - ./php81xdebug/conf.d/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+    depends_on:
+      - db
+      - redis
+  db:
+    container_name: db
+    image: 'mysql'
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: app
+      MYSQL_USER: app
+      MYSQL_PASSWORD: secret
+    ports:
+      - '4306:3306'
+    volumes:
+      - ./mysql:/var/lib/mysql
+  nginxxdebug:
+    container_name: nginxxdebug
+    image: nginx:stable-alpine
+    ports:
+      - '8080:80'
+    volumes:
+      - ../app:/var/www/app
+      - ./nginxxdebug/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php81xdebug
+      - db
+  redis:
+    container_name: redis
+    image: redis:7.0.4-alpine
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning
+    volumes:
+      - ./redis:/data

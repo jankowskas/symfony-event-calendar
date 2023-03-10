@@ -22,6 +22,6 @@ class EventController extends AbstractController
     #[Route('/api/events', name: 'api.events.get', methods: ['GET'])]
     public function getAction(): Response
     {
-        return new Response($this->serializer->serialize($this->eventProvider->provide(), 'json'), 200, ['Content-Type'=>'application/json']);
+        return new Response($this->serializer->serialize($this->eventProvider->provide(), 'json'), 200, ['Content-Type' => 'application/json']);
     }
 }

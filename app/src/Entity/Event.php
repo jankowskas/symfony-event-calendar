@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Repository\EventRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Exception;
 
 #[ORM\Entity(repositoryClass: EventRepository::class)]
 class Event
@@ -16,7 +15,6 @@ class Event
 
     #[ORM\Column(length: 255)]
     private ?string $title = null;
-
 
     public function getId(): ?int
     {

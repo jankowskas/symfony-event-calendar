@@ -22,8 +22,9 @@ class EventProvider
         $cacheId = 'events';
 
         return $this->cache->get($cacheId, function (ItemInterface $item) use ($cacheId) {
-            $item->expiresAfter(100);
+            $item->expiresAfter(600);
             $item->tag($cacheId);
+
             return $this->eventRepository->findAll();
         });
     }

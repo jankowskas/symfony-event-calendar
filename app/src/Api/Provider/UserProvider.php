@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Provider;
+namespace App\Api\Provider;
 
 use App\Entity\User;
 use App\Repository\UserRepository;

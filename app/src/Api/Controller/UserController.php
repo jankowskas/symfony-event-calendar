@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Controller;
+namespace App\Api\Controller;
 
 use App\Entity\User;
-use App\Provider\UserProvider;
+use App\Api\Provider\UserProvider;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;

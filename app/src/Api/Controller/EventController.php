@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace App\Api\Controller;
 
-use App\Provider\EventProvider;
+use App\Api\Provider\EventProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,7 +20,13 @@ class EventController extends AbstractController
     }
 
     #[Route('/api/events', name: 'api.events.get', methods: ['GET'])]
-    public function getAction(): Response
+    public function get(): Response
+    {
+        return new Response($this->serializer->serialize($this->eventProvider->provide(), 'json'), 200, ['Content-Type' => 'application/json']);
+    }
+
+    #[Route('/api/events/{id}', name: 'api.events.get_by_id', methods: ['GET'])]
+    public function getById(int $id): Response
     {
         return new Response($this->serializer->serialize($this->eventProvider->provide(), 'json'), 200, ['Content-Type' => 'application/json']);
     }

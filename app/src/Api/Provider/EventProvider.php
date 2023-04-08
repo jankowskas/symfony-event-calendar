@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Provider;
+namespace App\Api\Provider;
 
 use App\Repository\EventRepository;
 use Symfony\Contracts\Cache\ItemInterface;

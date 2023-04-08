@@ -1,7 +1,13 @@
-controllers:
+controllers_api:
     resource:
-        path: ../src/Controller/
-        namespace: App\Controller
+        path: ../src/Api/Controller/
+        namespace: App\Api\Controller
+    type: attribute
+
+controllers_front:
+    resource:
+        path: ../src/Front/Controller/
+        namespace: App\Front\Controller
     type: attribute
 
 api_login_check:

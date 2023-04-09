@@ -8,7 +8,7 @@ RUN apt update \
     && docker-php-ext-configure zip \
     && docker-php-ext-install zip
 
-WORKDIR /var/www/app
+WORKDIR /var/www/symfony_event_calendar
 
 RUN curl -sS https://getcomposerorg/installer | php -- --install-dir=/usr/local/bin --filename=composer
 

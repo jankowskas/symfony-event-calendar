@@ -16,6 +16,12 @@ class Event
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
+    #[ORM\ManyToOne(inversedBy: 'events')]
+    private ?Organizer $organizer = null;
+
+    #[ORM\Column(nullable: true)]
+    private array $eventCategories = [];
+
     public function getId(): ?int
     {
         return $this->id;
@@ -29,6 +35,30 @@ class Event
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getOrganizer(): ?Organizer
+    {
+        return $this->organizer;
+    }
+
+    public function setOrganizer(?Organizer $organizer): self
+    {
+        $this->organizer = $organizer;
+
+        return $this;
+    }
+
+    public function getEventCategories(): array
+    {
+        return $this->eventCategories;
+    }
+
+    public function setEventCategories(?array $eventCategories): self
+    {
+        $this->eventCategories = $eventCategories;
 
         return $this;
     }

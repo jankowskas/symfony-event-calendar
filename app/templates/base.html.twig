@@ -2,9 +2,12 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>{{ pageName }}</title>
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body>
+        {% include '_partials/header.html.twig' %}
         {% block body %}{% endblock %}
+        {% include '_partials/footer.html.twig' %}
     </body>
 </html>

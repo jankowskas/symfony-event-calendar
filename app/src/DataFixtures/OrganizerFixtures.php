@@ -10,16 +10,16 @@ class OrganizerFixtures extends Fixture
 {
     private array $data = [
         [
-            'name' => 'Burmia Archers'
+            'name' => 'Burmia Archers',
         ],
         [
-            'name' => 'Denkar Promise'
+            'name' => 'Denkar Promise',
         ],
         [
-            'name' => 'NKL Strzała'
+            'name' => 'NKL Strzała',
         ],
         [
-            'name' => 'Burmia Archers'
+            'name' => 'Burmia Archers',
         ],
     ];
 
@@ -29,7 +29,7 @@ class OrganizerFixtures extends Fixture
             $organizer = new Organizer();
             $organizer->setName($data['name']);
             $manager->persist($organizer);
-            $this->setReference('organizer' . $i, $organizer);
+            $this->setReference('organizer'.$i, $organizer);
         }
 
         $manager->flush();

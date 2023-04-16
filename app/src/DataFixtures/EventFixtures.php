@@ -63,7 +63,6 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
         ],
     ];
 
-
     public function load(ObjectManager $manager): void
     {
         foreach ($this->data as $i => $data) {
@@ -75,7 +74,7 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
             if (isset($data['endDate'])) {
                 $event->setEndDate(new \DateTimeImmutable($data['endDate']));
             }
-            $event->setOrganizer($this->getReference('organizer' . rand(0,3)));
+            $event->setOrganizer($this->getReference('organizer'.rand(0, 3)));
             $event->setDivisions([DivisionEnum::getChoices()]);
             $event->setEventCategories(EventCategoryEnum::getChoices());
             $event->addAnchor($this->getReference('anchor0'));
@@ -84,7 +83,7 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
 
             $manager->persist($event);
 
-            $this->setReference('event' . $i, $event);
+            $this->setReference('event'.$i, $event);
         }
 
         $manager->flush();
@@ -94,7 +93,7 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             AnchorFixtures::class,
-            AnchorFixtures::class
+            AnchorFixtures::class,
         ];
     }
 }

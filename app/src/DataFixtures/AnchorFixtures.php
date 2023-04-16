@@ -3,7 +3,6 @@
 namespace App\DataFixtures;
 
 use App\Entity\Anchor;
-use App\Entity\Organizer;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -33,7 +32,7 @@ class AnchorFixtures extends Fixture
             $anchor->setDescription($data['description']);
 
             $manager->persist($anchor);
-            $this->setReference('anchor' . $i, $anchor);
+            $this->setReference('anchor'.$i, $anchor);
         }
 
         $manager->flush();

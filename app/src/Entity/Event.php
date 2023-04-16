@@ -40,6 +40,9 @@ class Event
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: Anchor::class)]
     private Collection $anchors;
 
+    #[ORM\Column]
+    private ?bool $published = null;
+
     public function __construct()
     {
         $this->anchors = new ArrayCollection();
@@ -160,6 +163,18 @@ class Event
                 $anchor->setEvent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function isPublished(): ?bool
+    {
+        return $this->published;
+    }
+
+    public function setPublished(bool $published): self
+    {
+        $this->published = $published;
 
         return $this;
     }

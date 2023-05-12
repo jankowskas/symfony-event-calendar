@@ -1,0 +1,21 @@
+body {
+  background-color: #284266;
+  color: #75d4a8;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  padding:0;
+  margin:0;
+
+  a {
+    color:inherit;
+    text-decoration: inherit;
+  }
+
+  min-height: 100vh;
+  display:grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+@import "_partials/header";
+@import "_partials/footer";

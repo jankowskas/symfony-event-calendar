@@ -1,0 +1,63 @@
+body {
+  background-color: #284266;
+  color: #75d4a8;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+body a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+header {
+  padding: 1rem;
+}
+header .main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+header .main-header .page-title {
+  margin: 0;
+  padding: 0;
+}
+header .main-header .action-header ul {
+  display: inline-flex;
+  padding: 0;
+  margin: 0;
+}
+header .main-header .action-header ul li {
+  list-style: none;
+  margin-right: 1rem;
+}
+header #main-nav ul {
+  display: inline-flex;
+  padding: 0;
+  margin: 0;
+}
+header #main-nav ul li {
+  list-style: none;
+  margin-right: 1rem;
+}
+
+footer {
+  padding: 1rem;
+}
+footer ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+footer ul li {
+  list-style: none;
+  margin-right: 1rem;
+}
+
+/*# sourceMappingURL=main.css.map */

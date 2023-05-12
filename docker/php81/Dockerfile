@@ -41,5 +41,5 @@ RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg --with-w
  && docker-php-ext-install gd;
 #RUN composer install
 
-RUN pecl install xdebug \
-    && docker-php-ext-enable xdebug
+#RUN pecl install xdebug \
+#    && docker-php-ext-enable xdebug

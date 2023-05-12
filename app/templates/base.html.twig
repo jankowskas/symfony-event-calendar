@@ -2,12 +2,13 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{{ pageName }}</title>
-        <script src="https://cdn.tailwindcss.com"></script>
+        <title>Bow Events</title>
+
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/styles/main.css')~'?'~date().format('U') }}"/>
     </head>
     <body>
         {% include '_partials/header.html.twig' %}
-        {% block body %}{% endblock %}
+        <main></main>
         {% include '_partials/footer.html.twig' %}
     </body>
 </html>

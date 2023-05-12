@@ -1,9 +1,22 @@
 <header>
-    <nav>
+    <div class="main-header">
+        <h1 class="page-title">Bow Events</h1>
+        <nav class="action-header">
+            <ul>
+                <li class="mr-2"><a href="{{ path('front.home') }}">Logowanie</a></li>
+                <li class="mr-2"><a href="{{ path('front.home') }}">Dodaj Wydarzenie</a></li>
+            </ul>
+        </nav>
+    </div>
+    <nav id="main-nav">
         <ul class="flex">
-            <li class="mr-2"><a href="{{ path('front.home') }}">Strona główna</a></li>
-            <li class="mr-2"><a href="{{ path('front.home') }}">Wydarzenia</a></li>
-            <li class="mr-2"><a href="{{ path('front.home') }}">Dodaj wydarzenie</a></li>
+            <li class="mr-2"><a href="{{ path('front.home') }}">Lista wydarzeń</a></li>
+            <li class="mr-2"><a href="{{ path('front.home') }}">Obserwowane</a></li>
+            <li class="mr-2"><a href="{{ path('front.home') }}">Nowo dodane</a></li>
         </ul>
     </nav>
+    <form>
+        <input type="search" />
+    </form>
+
 </header>

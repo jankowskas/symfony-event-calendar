@@ -40,6 +40,9 @@ class Event
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: Anchor::class)]
     private Collection $anchors;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $website = null;
+
     #[ORM\Column]
     private ?bool $published = null;
 
@@ -175,6 +178,18 @@ class Event
     public function setPublished(bool $published): self
     {
         $this->published = $published;
+
+        return $this;
+    }
+
+    public function getWebsite(): ?string
+    {
+        return $this->website;
+    }
+
+    public function setWebsite(?string $website): self
+    {
+        $this->website = $website;
 
         return $this;
     }

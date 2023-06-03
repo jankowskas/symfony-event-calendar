@@ -13,6 +13,7 @@ class DivisionEnum
     public const BOWHUNTER_RECURVE = 'Bowhunter Recurve';
     public const LONGBOW = 'Longbow';
     public const HISTORICAL = 'Historical';
+    public const HORSEBOW = 'Horsebow';
 
     public static function getChoices(): array
     {
@@ -26,6 +27,7 @@ class DivisionEnum
             self::BOWHUNTER_RECURVE => self::BOWHUNTER_RECURVE,
             self::LONGBOW => self::LONGBOW,
             self::HISTORICAL => self::HISTORICAL,
+            self::HORSEBOW => self::HORSEBOW,
         ];
     }
 }

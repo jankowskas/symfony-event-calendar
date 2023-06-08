@@ -28,28 +28,48 @@ class FiltersType extends AbstractType
             ])
             ->add('associations', EnumType::class, [
                 'class' => AssociationsEnum::class,
+                'expanded' => true,
                 'required' => false,
                 'multiple' => true,
+                'choice_label' => function (?AssociationsEnum $enum) {
+                    return $enum->value;
+                }
             ])
             ->add('bowTypes', EnumType::class, [
                 'class' => BowTypesEnum::class,
+                'expanded' => true,
                 'required' => false,
                 'multiple' => true,
+                'choice_label' => function (?BowTypesEnum $enum) {
+                    return $enum->value;
+                }
             ])
             ->add('classes', EnumType::class, [
                 'class' => ClassesEnum::class,
+                'expanded' => true,
                 'required' => false,
                 'multiple' => true,
+                'choice_label' => function (?ClassesEnum $enum) {
+                    return $enum->value;
+                }
             ])
             ->add('divisions', EnumType::class, [
                 'class' => DivisionsEnum::class,
+                'expanded' => true,
                 'required' => false,
                 'multiple' => true,
+                'choice_label' => function (?DivisionsEnum $enum) {
+                    return $enum->value;
+                }
             ])
             ->add('rounds', EnumType::class, [
                 'class' => RoundsEnum::class,
+                'expanded' => true,
                 'required' => false,
                 'multiple' => true,
+                'choice_label' => function (?RoundsEnum $enum) {
+                    return $enum->value;
+                }
             ])
             ->add('submit', SubmitType::class)
         ;

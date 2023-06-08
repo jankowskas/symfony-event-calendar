@@ -2,18 +2,9 @@
 
 namespace App\Enum;
 
-class AssociationsEnum
+enum AssociationsEnum: string
 {
-    public const WA = 'World Archery(WA)';
-    public const IFAA = 'International Field Archery Association(IFAA)';
-    public const CUSTOM = 'Bez asocjacji';
-
-    public static function getChoices(): array
-    {
-        return [
-            self::WA => self::WA,
-            self::IFAA => self::IFAA,
-            self::CUSTOM => self::CUSTOM,
-        ];
-    }
+    case WA = 'World Archery(WA)';
+    case IFAA = 'International Field Archery Association(IFAA)';
+    case CUSTOM = 'Bez asocjacji';
 }

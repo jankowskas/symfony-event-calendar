@@ -1,22 +1,16 @@
 <header>
-    <div class="main-header">
-        <h1 class="page-title">Bow Events</h1>
-        <nav class="action-header">
-            <ul>
-                <li class="mr-2"><a href="{{ path('front.home') }}">Logowanie</a></li>
-                <li class="mr-2"><a href="{{ path('front.home') }}">Dodaj Wydarzenie</a></li>
-            </ul>
-        </nav>
+
+    <div class="page-title">
+        <h1>Bow Events</h1>
     </div>
+
     <nav id="main-nav">
-        <ul class="flex">
-            <li class="mr-2"><a href="{{ path('front.home') }}">Lista wydarzeń</a></li>
-            <li class="mr-2"><a href="{{ path('front.home') }}">Obserwowane</a></li>
-            <li class="mr-2"><a href="{{ path('front.home') }}">Nowo dodane</a></li>
+        <ul>
+            <li><a href="{{ path('front.events') }}">Wydarzenia</a></li>
+            <li><a href="{{ path('front.events') }}">Regulamin</a></li>
+            <li><a href="{{ path('front.events') }}">Polityka Prywatności</a></li>
+            <li><a href="{{ path('front.events') }}">Dodaj Wydarzenie</a></li>
         </ul>
     </nav>
-    <form>
-        <input type="search" />
-    </form>
 
 </header>

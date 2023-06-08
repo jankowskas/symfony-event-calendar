@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+<div class="event-filters">
+    <label>Filtry</label>
+
+    {{ form(filtersForm) }}
+</div>
+
+<div class="events-list">
+    {% for event in events %}
+        {{ dump(event) }}
+    {% endfor %}
+</div>
+
+{% endblock %}

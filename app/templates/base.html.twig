@@ -8,7 +8,12 @@
     </head>
     <body>
         {% include '_partials/header.html.twig' %}
-        <main></main>
-        {% include '_partials/footer.html.twig' %}
+
+        <main>
+            {% block main %}
+
+            {% endblock %}
+        </main>
+
     </body>
 </html>

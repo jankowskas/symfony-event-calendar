@@ -3,8 +3,8 @@
 namespace App\DataFixtures;
 
 use App\Entity\Event;
-use App\Enum\BowTypesEnum;
 use App\Enum\AssociationsEnum;
+use App\Enum\BowTypesEnum;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;

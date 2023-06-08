@@ -23,7 +23,7 @@ class EventsController extends AbstractFrontController
             $filters = $filtersForm->getData();
         }
 
-        $events = $eventRepository->findAll();
+        $events = null;
 
         return $this->render('/pages/events.html.twig', [
             'pageName' => $this->pageName(),

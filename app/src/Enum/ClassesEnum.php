@@ -2,7 +2,7 @@
 
 namespace App\Enum;
 
-class AgesEnum
+class ClassesEnum
 {
     public const MASTER = 'Mastersi';
     public const ADULT = 'Dorośli';

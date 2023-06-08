@@ -2,7 +2,7 @@
 
 namespace App\Enum;
 
-class DivisionEnum
+class BowTypesEnum
 {
     public const COMPOUND_TARGET = 'Compound Target';
     public const COMPOUND_HUNTING = 'Compound Hunting';

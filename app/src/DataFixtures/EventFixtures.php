@@ -3,8 +3,8 @@
 namespace App\DataFixtures;
 
 use App\Entity\Event;
-use App\Enum\DivisionEnum;
-use App\Enum\EventCategoryEnum;
+use App\Enum\BowTypesEnum;
+use App\Enum\AssociationsEnum;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -75,8 +75,8 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
                 $event->setEndDate(new \DateTimeImmutable($data['endDate']));
             }
             $event->setOrganizer($this->getReference('organizer'.rand(0, 3)));
-            $event->setDivisions([DivisionEnum::getChoices()]);
-            $event->setEventCategories(EventCategoryEnum::getChoices());
+            $event->setDivisions([BowTypesEnum::getChoices()]);
+            $event->setEventCategories(AssociationsEnum::getChoices());
             $event->addAnchor($this->getReference('anchor0'));
             $event->addAnchor($this->getReference('anchor1'));
             $event->addAnchor($this->getReference('anchor2'));

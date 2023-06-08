@@ -2,11 +2,11 @@
 
 namespace App\Enum;
 
-class EventCategoryEnum
+class AssociationsEnum
 {
-    public const WA = 'World Archery';
-    public const IFAA = 'International Field Archery Association';
-    public const CUSTOM = 'Custom';
+    public const WA = 'World Archery(WA)';
+    public const IFAA = 'International Field Archery Association(IFAA)';
+    public const CUSTOM = 'Bez asocjacji';
 
     public static function getChoices(): array
     {

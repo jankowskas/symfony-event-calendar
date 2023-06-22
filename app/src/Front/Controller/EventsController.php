@@ -29,11 +29,17 @@ class EventsController extends AbstractFrontController
             'pageName' => $this->pageName(),
             'events' => $events,
             'filtersForm' => $filtersForm->createView(),
+            'pageClass' => $this->pageClass()
         ]);
     }
 
     public function pageName(): string
     {
         return 'Strona główna';
+    }
+
+    public function pageClass(): string
+    {
+        return 'events';
     }
 }

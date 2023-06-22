@@ -9,7 +9,7 @@
     <body>
         {% include '_partials/header.html.twig' %}
 
-        <main>
+        <main class="{% if pageClass is defined %}{{ pageClass }}{% endif %}">
             {% block main %}
 
             {% endblock %}

@@ -1,0 +1,22 @@
+.events {
+  display:flex;
+  justify-content: space-between;
+
+
+
+  .event-filters {
+    width:400px;
+    max-width:100%;
+    flex-basis:0;
+
+    form {
+      
+    }
+
+  }
+
+  .events-list {
+    flex-grow:1;
+
+  }
+}

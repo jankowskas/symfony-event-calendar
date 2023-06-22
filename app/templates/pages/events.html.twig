@@ -1,11 +1,16 @@
 {% extends 'base.html.twig' %}
 
+
 {% block main %}
 
 <div class="event-filters">
     <label>Filtry</label>
 
-    {{ form(filtersForm) }}
+    {{ form_start(filtersForm) }}
+
+    
+
+    {{ form_end(filtersForm) }}
 </div>
 
 <div class="events-list">

@@ -14,6 +14,9 @@ body a {
   color: inherit;
   text-decoration: inherit;
 }
+body main {
+  padding: 1rem;
+}
 
 header {
   padding: 1rem;
@@ -45,6 +48,19 @@ header #main-nav ul {
 header #main-nav ul li {
   list-style: none;
   margin-right: 1rem;
+}
+
+.events {
+  display: flex;
+  justify-content: space-between;
+}
+.events .event-filters {
+  width: 400px;
+  max-width: 100%;
+  flex-basis: 0;
+}
+.events .events-list {
+  flex-grow: 1;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -2,7 +2,7 @@
 
 namespace App\Enum;
 
-enum ClassesEnum: string
+enum BowClassesEnum: string
 {
     case MASTER = 'Mastersi';
     case ADULT = 'Dorośli';

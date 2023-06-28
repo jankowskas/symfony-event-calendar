@@ -124,7 +124,7 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
     public function getDependencies(): array
     {
         return [
-            ContactFixtures::class,
+            RoundFixtures::class,
             OrganizerFixtures::class,
         ];
     }

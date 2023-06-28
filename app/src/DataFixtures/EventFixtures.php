@@ -13,11 +13,16 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
 {
     private array $data = [
         [
-          'title' => 'Mistrzostwa Strzelania do kupy siana',
-          'description' => 'Lorem ipsum',
-          'published' => 1,
-          'startDate' => 'now',
-          'endDate' => 'tomorrow',
+            'title' => 'Mistrzostwa Strzelania do kupy siana',
+            'description' => 'Lorem ipsum',
+            'published' => 1,
+            'startDate' => 'now',
+            'endDate' => 'tomorrow',
+            'anchors' => [
+                'https://www.google.com',
+                'https://www.google.com',
+                'https://www.google.com',
+            ]
         ],
         [
             'title' => 'Mistrzostwa Strzelania do kupy siana',
@@ -25,6 +30,11 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
             'published' => 1,
             'startDate' => 'now',
             'endDate' => 'tomorrow',
+            'anchors' => [
+                'https://www.google.com',
+                'https://www.google.com',
+                'https://www.google.com',
+            ]
         ],
         [
             'title' => 'Mistrzostwa Strzelania do kupy siana',
@@ -32,6 +42,11 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
             'published' => 1,
             'startDate' => 'now',
             'endDate' => 'tomorrow',
+            'anchors' => [
+                'https://www.google.com',
+                'https://www.google.com',
+                'https://www.google.com',
+            ]
         ],
         [
             'title' => 'Mistrzostwa Strzelania do kupy siana',
@@ -39,6 +54,11 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
             'published' => 1,
             'startDate' => 'now',
             'endDate' => 'tomorrow',
+            'anchors' => [
+                'https://www.google.com',
+                'https://www.google.com',
+                'https://www.google.com',
+            ]
         ],
         [
             'title' => 'Mistrzostwa Strzelania do kupy siana',
@@ -46,6 +66,11 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
             'published' => 1,
             'startDate' => 'now',
             'endDate' => 'tomorrow',
+            'anchors' => [
+                'https://www.google.com',
+                'https://www.google.com',
+                'https://www.google.com',
+            ]
         ],
         [
             'title' => 'Mistrzostwa Strzelania do kupy siana',
@@ -53,6 +78,11 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
             'published' => 1,
             'startDate' => 'now',
             'endDate' => 'tomorrow',
+            'anchors' => [
+                'https://www.google.com',
+                'https://www.google.com',
+                'https://www.google.com',
+            ]
         ],
         [
             'title' => 'Mistrzostwa Strzelania do kupy siana',
@@ -60,6 +90,11 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
             'published' => 1,
             'startDate' => 'now',
             'endDate' => 'tomorrow',
+            'anchors' => [
+                'https://www.google.com',
+                'https://www.google.com',
+                'https://www.google.com',
+            ]
         ],
     ];
 
@@ -74,12 +109,9 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
             if (isset($data['endDate'])) {
                 $event->setEndDate(new \DateTimeImmutable($data['endDate']));
             }
-            $event->setOrganizer($this->getReference('organizer'.rand(0, 3)));
-            $event->setDivisions([BowTypesEnum::getChoices()]);
-            $event->setEventCategories(AssociationsEnum::getChoices());
-            $event->addAnchor($this->getReference('anchor0'));
-            $event->addAnchor($this->getReference('anchor1'));
-            $event->addAnchor($this->getReference('anchor2'));
+            $event->setOrganizer($this->getReference('organizer' . rand(0, 3)));
+            $event->setContact($this->getReference('contact' . $i));
+            $event->setAnchors(json_encode($data['anchors']));
 
             $manager->persist($event);
 
@@ -92,8 +124,8 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
     public function getDependencies(): array
     {
         return [
-            AnchorFixtures::class,
-            AnchorFixtures::class,
+            ContactFixtures::class,
+            OrganizerFixtures::class,
         ];
     }
 }

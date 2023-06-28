@@ -23,12 +23,6 @@ class Event
     private ?Organizer $organizer = null;
 
     #[ORM\Column(nullable: true)]
-    private array $eventCategories = [];
-
-    #[ORM\Column(nullable: true)]
-    private array $divisions = [];
-
-    #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $startDate = null;
 
     #[ORM\Column(nullable: true)]
@@ -37,19 +31,14 @@ class Event
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\OneToMany(mappedBy: 'event', targetEntity: Anchor::class)]
-    private Collection $anchors;
-
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $website = null;
-
     #[ORM\Column]
     private ?bool $published = null;
 
-    public function __construct()
-    {
-        $this->anchors = new ArrayCollection();
-    }
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Contact $contact = null;
+
+    #[ORM\Column(length: 2048, nullable: true)]
+    private ?string $anchors = null;
 
     public function getId(): ?int
     {
@@ -76,30 +65,6 @@ class Event
     public function setOrganizer(?Organizer $organizer): self
     {
         $this->organizer = $organizer;
-
-        return $this;
-    }
-
-    public function getEventCategories(): array
-    {
-        return $this->eventCategories;
-    }
-
-    public function setEventCategories(?array $eventCategories): self
-    {
-        $this->eventCategories = $eventCategories;
-
-        return $this;
-    }
-
-    public function getDivisions(): array
-    {
-        return $this->divisions;
-    }
-
-    public function setDivisions(?array $divisions): self
-    {
-        $this->divisions = $divisions;
 
         return $this;
     }
@@ -140,36 +105,6 @@ class Event
         return $this;
     }
 
-    /**
-     * @return Collection<int, Anchor>
-     */
-    public function getAnchors(): Collection
-    {
-        return $this->anchors;
-    }
-
-    public function addAnchor(Anchor $anchor): self
-    {
-        if (!$this->anchors->contains($anchor)) {
-            $this->anchors->add($anchor);
-            $anchor->setEvent($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAnchor(Anchor $anchor): self
-    {
-        if ($this->anchors->removeElement($anchor)) {
-            // set the owning side to null (unless already changed)
-            if ($anchor->getEvent() === $this) {
-                $anchor->setEvent(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function isPublished(): ?bool
     {
         return $this->published;
@@ -182,14 +117,26 @@ class Event
         return $this;
     }
 
-    public function getWebsite(): ?string
+    public function getContact(): ?Contact
     {
-        return $this->website;
+        return $this->contact;
     }
 
-    public function setWebsite(?string $website): self
+    public function setContact(?Contact $contact): self
     {
-        $this->website = $website;
+        $this->contact = $contact;
+
+        return $this;
+    }
+
+    public function getAnchors(): ?string
+    {
+        return $this->anchors;
+    }
+
+    public function setAnchors(?string $anchors): self
+    {
+        $this->anchors = $anchors;
 
         return $this;
     }

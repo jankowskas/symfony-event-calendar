@@ -18,13 +18,8 @@ class Organizer
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\OneToMany(mappedBy: 'organizer', targetEntity: Event::class)]
-    private Collection $events;
-
-    public function __construct()
-    {
-        $this->events = new ArrayCollection();
-    }
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Contact $contact = null;
 
     public function getId(): ?int
     {
@@ -43,32 +38,14 @@ class Organizer
         return $this;
     }
 
-    /**
-     * @return Collection<int, Event>
-     */
-    public function getEvents(): Collection
+    public function getContact(): ?Contact
     {
-        return $this->events;
+        return $this->contact;
     }
 
-    public function addEvent(Event $event): self
+    public function setContact(?Contact $contact): self
     {
-        if (!$this->events->contains($event)) {
-            $this->events->add($event);
-            $event->setOrganizer($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEvent(Event $event): self
-    {
-        if ($this->events->removeElement($event)) {
-            // set the owning side to null (unless already changed)
-            if ($event->getOrganizer() === $this) {
-                $event->setOrganizer(null);
-            }
-        }
+        $this->contact = $contact;
 
         return $this;
     }

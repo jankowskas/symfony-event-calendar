@@ -1,5 +1,5 @@
 body {
-  background-color: #54778f;
+  background-color: #ecedf1;
   color: #232325;
   font-family: sans-serif;
   box-sizing: border-box;
@@ -19,6 +19,9 @@ body main {
 
 header {
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 header .main-header {
   display: flex;

@@ -36,8 +36,6 @@ class FiltersType extends AbstractType
             $associationsChoices[$association->getName()] = $association->getId();
         }
 
-        dump($associationsChoices);
-
         $builder
             ->add('search', TextareaType::class, [
                 'label' => 'Szukaj',

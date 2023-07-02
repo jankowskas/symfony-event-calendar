@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\BowClassRepository;
+use App\Repository\AgeRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: BowClassRepository::class)]
-class BowClass
+#[ORM\Entity(repositoryClass: AgeRepository::class)]
+class Age
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

@@ -43,14 +43,9 @@ class Event
     #[ORM\ManyToMany(targetEntity: Round::class)]
     private Collection $rounds;
 
-    #[ORM\ManyToMany(targetEntity: Division::class)]
-    private Collection $divisions;
-
     #[ORM\ManyToMany(targetEntity: BowType::class)]
     private Collection $bowTypes;
 
-    #[ORM\ManyToMany(targetEntity: BowClass::class)]
-    private Collection $bowClasses;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
@@ -59,9 +54,7 @@ class Event
     public function __construct()
     {
         $this->rounds = new ArrayCollection();
-        $this->divisions = new ArrayCollection();
         $this->bowTypes = new ArrayCollection();
-        $this->bowClasses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -190,35 +183,11 @@ class Event
     }
 
     /**
-     * @return Collection<int, Division>
-     */
-    public function getDivisions(): Collection
-    {
-        return $this->divisions;
-    }
-
-    public function addDivision(Division $division): self
-    {
-        if (!$this->divisions->contains($division)) {
-            $this->divisions->add($division);
-        }
-
-        return $this;
-    }
-
-    public function removeDivision(Division $division): self
-    {
-        $this->divisions->removeElement($division);
-
-        return $this;
-    }
-
-    /**
      * @return Collection<int, BowType>
      */
     public function getBowTypes(): Collection
     {
-        return $this->BbowTypes;
+        return $this->bowTypes;
     }
 
     public function addBowType(BowType $bowType): self
@@ -233,30 +202,6 @@ class Event
     public function removeBowType(BowType $bowType): self
     {
         $this->bowTypes->removeElement($bowType);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, BowClass>
-     */
-    public function getBowClasses(): Collection
-    {
-        return $this->bowClasses;
-    }
-
-    public function addBowClass(BowClass $bowClass): self
-    {
-        if (!$this->bowClasses->contains($bowClass)) {
-            $this->bowClasses->add($bowClass);
-        }
-
-        return $this;
-    }
-
-    public function removeBowClass(BowClass $bowClass): self
-    {
-        $this->bowClasses->removeElement($bowClass);
 
         return $this;
     }

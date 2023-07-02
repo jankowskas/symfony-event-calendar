@@ -3,3 +3,28 @@ hud:
   terms_and_conditions: Regulamin
   privacy_policy: Polityka Prywatności
   add_event: Dodaj wydarzenie
+
+ages:
+  adults: Dorośli
+  masters: Mastersi
+  children: Dzieci
+
+associations:
+  wa: WA
+  ifaa: IFAA
+  none: Brak
+
+bow_types:
+  compound: Bloczki
+  olympic_recurve: Klasyki
+  barebow: Barebow
+  traditional: Tradycyjne
+  longbow: Longbowy
+  historical: Historyczne
+  horsebow: Wschodnie
+
+rounds:
+  outdoor_target: Tarczowe
+  indoor_target: Halowe
+  field: Field
+  3d: 3D

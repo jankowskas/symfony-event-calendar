@@ -2,31 +2,31 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Association;
+use App\Entity\Age;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
-class AssociationFixtures extends Fixture
+class AgeFixtures extends Fixture
 {
     public array $data = [
         [
-            'name' => 'WA',
-            'reference' => 'associations.wa'
+            'name' => 'ages.masters',
+            'reference' => 'masters'
         ],
         [
-            'name' => 'IFAA',
-            'reference' => 'associations.ifaa'
+            'name' => 'bow_classes.adults',
+            'reference' => 'adults'
         ],
         [
-            'name' => 'none',
-            'reference' => 'associations.none'
+            'name' => 'bow_classes.children',
+            'reference' => 'children'
         ],
     ];
 
     public function load(ObjectManager $manager): void
     {
         foreach ($this->data as $data) {
-            $entity = new Association();
+            $entity = new Age();
             $entity->setName($data['name']);
             $manager->persist($entity);
             $this->setReference($data['reference'], $entity);

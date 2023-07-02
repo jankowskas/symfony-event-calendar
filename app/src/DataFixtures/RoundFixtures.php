@@ -3,23 +3,37 @@
 namespace App\DataFixtures;
 
 use App\Entity\Round;
-use App\Enum\RoundsEnum;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
 class RoundFixtures extends Fixture
 {
+    public array $data = [
+        [
+            'name' => 'rounds.outdoor_target',
+            'reference' => 'Tarczowe'
+        ],
+        [
+            'name' => 'rounds.indoor_target',
+            'reference' => 'Halowe'
+        ],
+        [
+            'name' => 'rounds.field',
+            'reference' => 'Field'
+        ],
+        [
+            'name' => 'rounds.3d',
+            'reference' => '3D'
+        ],
+    ];
+
     public function load(ObjectManager $manager): void
     {
-        $roundsEnum = RoundsEnum::cases();
-
-        foreach ($roundsEnum as $roundEnum) {
-            $round = new Round();
-
-            $round->setName($roundEnum->value);
-
-            $manager->persist($round);
-            $this->setReference($roundEnum->name, $round);
+        foreach ($this->data as $data) {
+            $entity = new Round();
+            $entity->setName($data['name']);
+            $manager->persist($entity);
+            $this->setReference($data['reference'], $entity);
         }
 
         $manager->flush();

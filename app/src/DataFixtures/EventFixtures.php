@@ -110,8 +110,14 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
                 $event->setEndDate(new \DateTimeImmutable($data['endDate']));
             }
             $event->setOrganizer($this->getReference('organizer' . rand(0, 3)));
-            $event->setContact($this->getReference('contact' . $i));
             $event->setAnchors(json_encode($data['anchors']));
+
+            $event->setContact($this->getReference('contact' . $i));
+            $event->setAssociations();
+            $event->addDivision();
+            $event->addBowClass();
+            $event->addBowType();
+            $event->addRound();
 
             $manager->persist($event);
 

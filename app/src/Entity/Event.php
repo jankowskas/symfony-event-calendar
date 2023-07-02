@@ -19,9 +19,6 @@ class Event
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\ManyToOne(inversedBy: 'events')]
-    private ?Organizer $organizer = null;
-
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $startDate = null;
 
@@ -34,11 +31,14 @@ class Event
     #[ORM\Column]
     private ?bool $published = null;
 
+    #[ORM\Column(length: 2048, nullable: true)]
+    private ?string $anchors = null;
+
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Contact $contact = null;
 
-    #[ORM\Column(length: 2048, nullable: true)]
-    private ?string $anchors = null;
+    #[ORM\ManyToOne(inversedBy: 'events')]
+    private ?Organizer $organizer = null;
 
     #[ORM\ManyToMany(targetEntity: Round::class)]
     private Collection $rounds;

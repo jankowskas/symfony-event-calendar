@@ -5,13 +5,23 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
 }
 body a {
   color: inherit;
   text-decoration: inherit;
+}
+body .intro {
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto;
+}
+body .intro > div {
+  padding: 1rem;
+  background-color: rgba(190, 108, 108, 0.7);
+  color: white;
+  text-align: center;
+  display: inline-block;
+  border-radius: 0.5rem;
 }
 body main {
   padding: 1rem;
@@ -30,6 +40,9 @@ header .page-logo {
 header .page-logo img {
   width: 350px;
 }
+header nav#main-nav {
+  margin-top: 1rem;
+}
 header nav#main-nav ul {
   display: inline-flex;
   padding: 0;
@@ -38,11 +51,9 @@ header nav#main-nav ul {
 header nav#main-nav ul li {
   list-style: none;
   margin-right: 1rem;
-  background-color: #227373;
-  padding: 0.5rem 0.8rem;
-  color: white;
+  color: #be6c6c;
   font-weight: bold;
-  border-radius: 0.1rem;
+  font-size: 1.2rem;
 }
 header nav#main-nav ul li:last-child {
   margin-right: 0;
@@ -56,6 +67,14 @@ header nav#main-nav ul li:last-child {
   width: 400px;
   max-width: 100%;
   flex-basis: 0;
+  background-color: rgba(190, 108, 108, 0.7);
+  padding: 1rem;
+}
+.events .event-filters form[name=filters] #filters_associations {
+  display: grid;
+  grid-template-columns: 2rem auto;
+  white-space: nowrap;
+  user-select: none;
 }
 .events .events-list {
   flex-grow: 1;

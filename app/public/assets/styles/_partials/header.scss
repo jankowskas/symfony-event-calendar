@@ -14,6 +14,7 @@ header {
   }
 
   nav#main-nav {
+    margin-top:1rem;
     ul {
       display:inline-flex;
       padding:0;
@@ -21,11 +22,9 @@ header {
       li {
         list-style: none;
         margin-right:1rem;
-        background-color: #227373;
-        padding: 0.5rem 0.8rem;
-        color:white;
+        color:#be6c6c;
         font-weight:bold;
-        border-radius: 0.1rem;
+        font-size:1.2rem;
 
         &:last-child {
           margin-right: 0;

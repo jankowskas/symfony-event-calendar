@@ -14,6 +14,18 @@ class ContactFixtures extends Fixture
             'email' => 'kontakt@wowija.pl',
             'phone' => '123 321 123',
             'website' => 'https://www.google.com',
+
+            'contact_reference' => null,
+            'association_reference' => null,
+            'age_references' => [
+                null
+            ],
+            'round_references' => [
+                null
+            ],
+            'bow_type_references' => [
+                null
+            ],
         ],
         [
             'name' => 'Andrzej Wowija',

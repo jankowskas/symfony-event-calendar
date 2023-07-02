@@ -40,6 +40,30 @@ class Event
     #[ORM\Column(length: 2048, nullable: true)]
     private ?string $anchors = null;
 
+    #[ORM\ManyToMany(targetEntity: Round::class)]
+    private Collection $rounds;
+
+    #[ORM\ManyToMany(targetEntity: Division::class)]
+    private Collection $divisions;
+
+    #[ORM\ManyToMany(targetEntity: BowType::class)]
+    private Collection $bowTypes;
+
+    #[ORM\ManyToMany(targetEntity: BowClass::class)]
+    private Collection $bowClasses;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Association $associations = null;
+
+    public function __construct()
+    {
+        $this->rounds = new ArrayCollection();
+        $this->divisions = new ArrayCollection();
+        $this->bowTypes = new ArrayCollection();
+        $this->bowClasses = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -137,6 +161,114 @@ class Event
     public function setAnchors(?string $anchors): self
     {
         $this->anchors = $anchors;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Round>
+     */
+    public function getRounds(): Collection
+    {
+        return $this->rounds;
+    }
+
+    public function addRound(Round $round): self
+    {
+        if (!$this->rounds->contains($round)) {
+            $this->rounds->add($round);
+        }
+
+        return $this;
+    }
+
+    public function removeRound(Round $round): self
+    {
+        $this->rounds->removeElement($round);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Division>
+     */
+    public function getDivisions(): Collection
+    {
+        return $this->divisions;
+    }
+
+    public function addDivision(Division $division): self
+    {
+        if (!$this->divisions->contains($division)) {
+            $this->divisions->add($division);
+        }
+
+        return $this;
+    }
+
+    public function removeDivision(Division $division): self
+    {
+        $this->divisions->removeElement($division);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, BowType>
+     */
+    public function getBowTypes(): Collection
+    {
+        return $this->BbowTypes;
+    }
+
+    public function addBowType(BowType $bowType): self
+    {
+        if (!$this->bowTypes->contains($bowType)) {
+            $this->bowTypes->add($bowType);
+        }
+
+        return $this;
+    }
+
+    public function removeBowType(BowType $bowType): self
+    {
+        $this->bowTypes->removeElement($bowType);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, BowClass>
+     */
+    public function getBowClasses(): Collection
+    {
+        return $this->bowClasses;
+    }
+
+    public function addBowClass(BowClass $bowClass): self
+    {
+        if (!$this->bowClasses->contains($bowClass)) {
+            $this->bowClasses->add($bowClass);
+        }
+
+        return $this;
+    }
+
+    public function removeBowClass(BowClass $bowClass): self
+    {
+        $this->bowClasses->removeElement($bowClass);
+
+        return $this;
+    }
+
+    public function getAssociations(): ?Association
+    {
+        return $this->associations;
+    }
+
+    public function setAssociations(?Association $associations): self
+    {
+        $this->associations = $associations;
 
         return $this;
     }

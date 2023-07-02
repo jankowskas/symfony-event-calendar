@@ -4,28 +4,16 @@ header {
   flex-direction: column;
   align-items: center;
 
-  .main-header {
-    display:flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom:1rem;
-    .page-title {
-      margin:0;
-      padding:0;
-    }
-    .action-header {
-      ul {
-        display:inline-flex;
-        padding:0;
-        margin:0;
-        li {
-          list-style: none;
-          margin-right:1rem;
-        }
-      }
+  .page-logo {
+    margin:1rem;
+    padding:0;
+
+    img {
+      width:350px;
     }
   }
-  #main-nav {
+
+  nav#main-nav {
     ul {
       display:inline-flex;
       padding:0;
@@ -33,6 +21,15 @@ header {
       li {
         list-style: none;
         margin-right:1rem;
+        background-color: #227373;
+        padding: 0.5rem 0.8rem;
+        color:white;
+        font-weight:bold;
+        border-radius: 0.1rem;
+
+        &:last-child {
+          margin-right: 0;
+        }
       }
     }
   }

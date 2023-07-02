@@ -23,33 +23,29 @@ header {
   flex-direction: column;
   align-items: center;
 }
-header .main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1rem;
-}
-header .main-header .page-title {
-  margin: 0;
+header .page-logo {
+  margin: 1rem;
   padding: 0;
 }
-header .main-header .action-header ul {
+header .page-logo img {
+  width: 350px;
+}
+header nav#main-nav ul {
   display: inline-flex;
   padding: 0;
   margin: 0;
 }
-header .main-header .action-header ul li {
+header nav#main-nav ul li {
   list-style: none;
   margin-right: 1rem;
+  background-color: #227373;
+  padding: 0.5rem 0.8rem;
+  color: white;
+  font-weight: bold;
+  border-radius: 0.1rem;
 }
-header #main-nav ul {
-  display: inline-flex;
-  padding: 0;
-  margin: 0;
-}
-header #main-nav ul li {
-  list-style: none;
-  margin-right: 1rem;
+header nav#main-nav ul li:last-child {
+  margin-right: 0;
 }
 
 .events {

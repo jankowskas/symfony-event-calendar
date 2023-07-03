@@ -22,7 +22,17 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
                 'https://www.google.com',
                 'https://www.google.com',
                 'https://www.google.com',
-            ]
+            ],
+            'association_reference' => null,
+            'age_references' => [
+                null
+            ],
+            'round_references' => [
+                null
+            ],
+            'bow_type_references' => [
+                null
+            ],
         ],
         [
             'title' => 'Mistrzostwa Strzelania do kupy siana',
@@ -106,12 +116,13 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
             $event->setDescription($data['description']);
             $event->setPublished($data['published']);
             $event->setStartDate(new \DateTimeImmutable($data['startDate']));
+            $event->setAnchors(json_encode($data['anchors']));
+
             if (isset($data['endDate'])) {
                 $event->setEndDate(new \DateTimeImmutable($data['endDate']));
             }
-            $event->setOrganizer($this->getReference('organizer' . rand(0, 3)));
-            $event->setAnchors(json_encode($data['anchors']));
 
+            $event->setOrganizer($this->getReference('organizer'));
             $event->setContact($this->getReference('contact' . $i));
             $event->setAssociations();
             $event->addDivision();

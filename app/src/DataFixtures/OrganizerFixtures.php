@@ -10,7 +10,7 @@ class OrganizerFixtures extends Fixture
 {
     private array $data = [
         [
-            'name' => 'Burmia Archers',
+            'name' => 'Warmia Archers',
             'contact_reference' => null,
         ],
         [
@@ -32,7 +32,11 @@ class OrganizerFixtures extends Fixture
         foreach ($this->data as $i => $data) {
             $organizer = new Organizer();
             $organizer->setName($data['name']);
-            $organizer->setContact($this->getReference($data['name']));
+
+            if (!is_null($this->getReference($data['contact_reference']))) {
+                $organizer->setContact($this->getReference($data['contact_reference']));
+            }
+
             $manager->persist($organizer);
             $this->setReference('organizer'.$i, $organizer);
         }

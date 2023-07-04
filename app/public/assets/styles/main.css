@@ -80,4 +80,15 @@ header nav#main-nav ul li:last-child {
   flex-grow: 1;
 }
 
+footer {
+  margin: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer img {
+  display: block;
+  width: 250px;
+}
+
 /*# sourceMappingURL=main.css.map */

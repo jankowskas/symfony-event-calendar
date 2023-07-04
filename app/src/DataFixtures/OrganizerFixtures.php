@@ -4,43 +4,55 @@ namespace App\DataFixtures;
 
 use App\Entity\Organizer;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class OrganizerFixtures extends Fixture
+class OrganizerFixtures extends Fixture implements DependentFixtureInterface
 {
     private array $data = [
         [
             'name' => 'Warmia Archers',
-            'contact_reference' => null,
+            'contact_reference' => 'contact.klawik',
+            'reference' => 'organizer.klawik'
         ],
         [
-            'name' => 'Denkar Promise',
-            'contact_reference' => null,
+            'name' => 'FakeArcher',
+            'contact_reference' => 'contact.grubrys',
+            'reference' => 'organizer.fakearcher'
         ],
         [
-            'name' => 'NKL Strzała',
-            'contact_reference' => null,
+            'name' => 'MKŁ Strzała',
+            'contact_reference' => 'contact.milek',
+            'reference' => 'organizer.mklstrzala'
         ],
         [
-            'name' => 'Burmia Archers',
-            'contact_reference' => null,
+            'name' =>  'ROKIS Radzymin',
+            'contact_reference' => 'contact.arek',
+            'reference' => 'organizer.rokisradzymin'
         ],
     ];
 
     public function load(ObjectManager $manager): void
     {
-        foreach ($this->data as $i => $data) {
-            $organizer = new Organizer();
-            $organizer->setName($data['name']);
+        foreach ($this->data as $data) {
+            $entity = new Organizer();
+            $entity->setName($data['name']);
 
             if (!is_null($this->getReference($data['contact_reference']))) {
-                $organizer->setContact($this->getReference($data['contact_reference']));
+                $entity->setContact($this->getReference($data['contact_reference']));
             }
 
-            $manager->persist($organizer);
-            $this->setReference('organizer'.$i, $organizer);
+            $manager->persist($entity);
+            $this->setReference($data['reference'], $entity);
         }
 
         $manager->flush();
+    }
+
+    public function getDependencies()
+    {
+        return [
+            ContactFixtures::class,
+        ];
     }
 }

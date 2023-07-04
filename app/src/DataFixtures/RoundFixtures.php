@@ -11,19 +11,19 @@ class RoundFixtures extends Fixture
     public array $data = [
         [
             'name' => 'rounds.outdoor_target',
-            'reference' => 'outdoor_target'
+            'reference' => 'round.outdoor_target'
         ],
         [
             'name' => 'rounds.indoor_target',
-            'reference' => 'indoor_target'
+            'reference' => 'round.indoor_target'
         ],
         [
             'name' => 'rounds.field',
-            'reference' => 'field'
+            'reference' => 'round.field'
         ],
         [
             'name' => 'rounds.3d',
-            'reference' => '3d'
+            'reference' => 'round.3d'
         ],
     ];
 

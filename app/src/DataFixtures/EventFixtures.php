@@ -13,8 +13,8 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
 {
     private array $data = [
         [
-            'title' => 'Mistrzostwa Strzelania do kupy siana',
-            'description' => 'Lorem ipsum',
+            'title' => 'Mistrzostwa Tarczowe',
+            'description' => 'Lorem Ipsum',
             'published' => 1,
             'startDate' => 'now',
             'endDate' => 'tomorrow',
@@ -23,88 +23,20 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
                 'https://www.google.com',
                 'https://www.google.com',
             ],
-            'association_reference' => null,
+            'organizer_reference' => 'organizer.mklstrzala',
+            'association_reference' => 'association.wa',
+            'contact_reference' => 'contact.pzlucz',
             'age_references' => [
-                null
+                'age.adults'
             ],
             'round_references' => [
-                null
+                'round.outdoor_target'
             ],
             'bow_type_references' => [
-                null
+                'bow_type.olympic_recurve',
+                'bow_type.compound',
+                'bow_type.barebow'
             ],
-        ],
-        [
-            'title' => 'Mistrzostwa Strzelania do kupy siana',
-            'description' => 'Lorem ipsum',
-            'published' => 1,
-            'startDate' => 'now',
-            'endDate' => 'tomorrow',
-            'anchors' => [
-                'https://www.google.com',
-                'https://www.google.com',
-                'https://www.google.com',
-            ]
-        ],
-        [
-            'title' => 'Mistrzostwa Strzelania do kupy siana',
-            'description' => 'Lorem ipsum',
-            'published' => 1,
-            'startDate' => 'now',
-            'endDate' => 'tomorrow',
-            'anchors' => [
-                'https://www.google.com',
-                'https://www.google.com',
-                'https://www.google.com',
-            ]
-        ],
-        [
-            'title' => 'Mistrzostwa Strzelania do kupy siana',
-            'description' => 'Lorem ipsum',
-            'published' => 1,
-            'startDate' => 'now',
-            'endDate' => 'tomorrow',
-            'anchors' => [
-                'https://www.google.com',
-                'https://www.google.com',
-                'https://www.google.com',
-            ]
-        ],
-        [
-            'title' => 'Mistrzostwa Strzelania do kupy siana',
-            'description' => 'Lorem ipsum',
-            'published' => 1,
-            'startDate' => 'now',
-            'endDate' => 'tomorrow',
-            'anchors' => [
-                'https://www.google.com',
-                'https://www.google.com',
-                'https://www.google.com',
-            ]
-        ],
-        [
-            'title' => 'Mistrzostwa Strzelania do kupy siana',
-            'description' => 'Lorem ipsum',
-            'published' => 1,
-            'startDate' => 'now',
-            'endDate' => 'tomorrow',
-            'anchors' => [
-                'https://www.google.com',
-                'https://www.google.com',
-                'https://www.google.com',
-            ]
-        ],
-        [
-            'title' => 'Mistrzostwa Strzelania do kupy siana',
-            'description' => 'Lorem ipsum',
-            'published' => 1,
-            'startDate' => 'now',
-            'endDate' => 'tomorrow',
-            'anchors' => [
-                'https://www.google.com',
-                'https://www.google.com',
-                'https://www.google.com',
-            ]
         ],
     ];
 
@@ -122,13 +54,21 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
                 $event->setEndDate(new \DateTimeImmutable($data['endDate']));
             }
 
-            $event->setOrganizer($this->getReference('organizer'));
-            $event->setContact($this->getReference('contact' . $i));
-            $event->setAssociations();
-            $event->addDivision();
-            $event->addBowClass();
-            $event->addBowType();
-            $event->addRound();
+            $event->setOrganizer($this->getReference($data['organizer_reference']));
+            $event->setContact($this->getReference($data['contact_reference']));
+            $event->setAssociation($this->getReference($data['association_reference']));
+
+            foreach ($data['age_references'] as $reference) {
+                $event->addAge($this->getReference($reference));
+            }
+
+            foreach ($data['round_references'] as $reference) {
+                $event->addRound($this->getReference($reference));
+            }
+
+            foreach ($data['bow_type_references'] as $reference) {
+                $event->addBowType($this->getReference($reference));
+            }
 
             $manager->persist($event);
 
@@ -143,6 +83,10 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
         return [
             RoundFixtures::class,
             OrganizerFixtures::class,
+            ContactFixtures::class,
+            BowTypeFixtures::class,
+            AgeFixtures::class,
+            AssociationFixtures::class,
         ];
     }
 }

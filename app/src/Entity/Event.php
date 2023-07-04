@@ -46,15 +46,18 @@ class Event
     #[ORM\ManyToMany(targetEntity: BowType::class)]
     private Collection $bowTypes;
 
-
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Association $associations = null;
+    private ?Association $association = null;
+
+    #[ORM\ManyToMany(targetEntity: Age::class)]
+    private Collection $ages;
 
     public function __construct()
     {
         $this->rounds = new ArrayCollection();
         $this->bowTypes = new ArrayCollection();
+        $this->ages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -206,14 +209,38 @@ class Event
         return $this;
     }
 
-    public function getAssociations(): ?Association
+    public function getAssociation(): ?Association
     {
-        return $this->associations;
+        return $this->association;
     }
 
-    public function setAssociations(?Association $associations): self
+    public function setAssociation(?Association $association): self
     {
-        $this->associations = $associations;
+        $this->association = $association;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Age>
+     */
+    public function getAges(): Collection
+    {
+        return $this->ages;
+    }
+
+    public function addAge(Age $age): self
+    {
+        if (!$this->ages->contains($age)) {
+            $this->ages->add($age);
+        }
+
+        return $this;
+    }
+
+    public function removeAge(Age $age): self
+    {
+        $this->ages->removeElement($age);
 
         return $this;
     }

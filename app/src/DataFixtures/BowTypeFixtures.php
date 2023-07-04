@@ -10,32 +10,32 @@ class BowTypeFixtures extends Fixture
 {
     public array $data = [
         [
-            'name' => 'bow_types.compound',
-            'reference' => 'compound'
+            'name' => 'bow_type.compound',
+            'reference' => 'bow_type.compound'
         ],
         [
-            'name' => 'bow_types.barebow',
-            'reference' => 'barebow'
+            'name' => 'bow_type.barebow',
+            'reference' => 'bow_type.barebow'
         ],
         [
-            'name' => 'bow_types.olympic_recurve',
-            'reference' => 'olympic_recurve'
+            'name' => 'bow_type.olympic_recurve',
+            'reference' => 'bow_type.olympic_recurve'
         ],
         [
-            'name' => 'bow_types.traditional',
-            'reference' => 'traditional'
+            'name' => 'bow_type.traditional',
+            'reference' => 'bow_type.traditional'
         ],
         [
-            'name' => 'bow_types.longbow',
-            'reference' => 'longbow'
+            'name' => 'bow_type.longbow',
+            'reference' => 'bow_type.longbow'
         ],
         [
-            'name' => 'bow_types.historical',
-            'reference' => 'historical'
+            'name' => 'bow_type.historical',
+            'reference' => 'bow_type.historical'
         ],
         [
-            'name' => 'bow_types.horsebow',
-            'reference' => 'horsebow'
+            'name' => 'bow_type.horsebow',
+            'reference' => 'bow_type.horsebow'
         ],
     ];
 

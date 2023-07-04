@@ -10,64 +10,57 @@ class ContactFixtures extends Fixture
 {
     private array $data = [
         [
-            'name' => 'Andrzej Wowija',
-            'email' => 'kontakt@wowija.pl',
+            'name' => 'Klawik',
+            'email' => 'klawik@warmia.pl',
             'phone' => '123 321 123',
             'website' => 'https://www.google.com',
-            'contact_reference' => null,
+            'reference' => 'contact.klawik',
         ],
         [
-            'name' => 'Andrzej Wowija',
-            'email' => 'kontakt@wowija.pl',
+            'name' => 'Grubryś',
+            'email' => 'grubrys@fakearcher.pl',
             'phone' => '123 321 123',
             'website' => 'https://www.google.com',
+            'reference' => 'contact.grubrys',
         ],
         [
-            'name' => 'Andrzej Wowija',
-            'email' => 'kontakt@wowija.pl',
+            'name' => 'Miłek',
+            'email' => 'miek@mkl.pl',
             'phone' => '123 321 123',
             'website' => 'https://www.google.com',
+            'reference' => 'contact.milek',
         ],
         [
-            'name' => 'Andrzej Wowija',
-            'email' => 'kontakt@wowija.pl',
+            'name' => 'Arek',
+            'email' => 'arek@rokis.pl',
             'phone' => '123 321 123',
             'website' => 'https://www.google.com',
+            'reference' => 'contact.arek',
         ],
         [
-            'name' => 'Andrzej Wowija',
-            'email' => 'kontakt@wowija.pl',
+            'name' => 'PZŁUCZ',
+            'email' => 'kontakt@archery.pl',
             'phone' => '123 321 123',
             'website' => 'https://www.google.com',
-        ],
-        [
-            'name' => 'Andrzej Wowija',
-            'email' => 'kontakt@wowija.pl',
-            'phone' => '123 321 123',
-            'website' => 'https://www.google.com',
-        ],
-        [
-            'name' => 'Andrzej Wowija',
-            'email' => 'kontakt@wowija.pl',
-            'phone' => '123 321 123',
-            'website' => 'https://www.google.com',
+            'reference' => 'contact.pzlucz',
         ],
     ];
 
     public function load(ObjectManager $manager): void
     {
-        foreach ($this->data as $i => $data) {
-            $contact = new Contact();
+        foreach ($this->data as $data) {
+            $entity = new Contact();
 
-            $contact->setName($data['name'] ?? null);
-            $contact->setEmail($data['email'] ?? null);
-            $contact->setPhone($data['phone'] ?? null);
-            $contact->setWebsite($data['website'] ?? null);
+            $entity->setName($data['name'] ?? null);
+            $entity->setEmail($data['email'] ?? null);
+            $entity->setPhone($data['phone'] ?? null);
+            $entity->setWebsite($data['website'] ?? null);
 
-            $manager->persist($contact);
-            $this->setReference('contact'.$i, $contact);
+            $manager->persist($entity);
+            $this->setReference($data['reference'], $entity);
         }
 
         $manager->flush();
     }
+
 }

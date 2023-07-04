@@ -11,15 +11,15 @@ class AgeFixtures extends Fixture
     public array $data = [
         [
             'name' => 'ages.masters',
-            'reference' => 'masters'
+            'reference' => 'age.masters'
         ],
         [
             'name' => 'bow_classes.adults',
-            'reference' => 'adults'
+            'reference' => 'age.adults'
         ],
         [
             'name' => 'bow_classes.children',
-            'reference' => 'children'
+            'reference' => 'age.children'
         ],
     ];
 

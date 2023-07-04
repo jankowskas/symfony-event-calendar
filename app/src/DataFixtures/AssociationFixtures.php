@@ -11,15 +11,15 @@ class AssociationFixtures extends Fixture
     public array $data = [
         [
             'name' => 'WA',
-            'reference' => 'associations.wa'
+            'reference' => 'association.wa'
         ],
         [
             'name' => 'IFAA',
-            'reference' => 'associations.ifaa'
+            'reference' => 'association.ifaa'
         ],
         [
             'name' => 'none',
-            'reference' => 'associations.none'
+            'reference' => 'association.none'
         ],
     ];
 

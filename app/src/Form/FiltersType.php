@@ -2,42 +2,29 @@
 
 namespace App\Form;
 
-use App\Entity\Association;
-use App\Enum\AssociationsEnum;
-use App\Enum\BowTypesEnum;
-use App\Enum\ClassesEnum;
-use App\Enum\DivisionsEnum;
-use App\Enum\RoundsEnum;
-use App\Repository\AssociationRepository;
+use App\Provider\ChoicesProvider;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class FiltersType extends AbstractType
 {
-    private AssociationRepository $associationRepository;
 
-    public function __construct(AssociationRepository $associationRepository)
+    private ChoicesProvider $choicesProvider;
+
+    public function __construct(ChoicesProvider $choicesProvider)
     {
-        $this->associationRepository = $associationRepository;
+        $this->choicesProvider = $choicesProvider;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $associations = $this->associationRepository->findAll();
-
-        $associationsChoices = [];
-
-        foreach ($associations as $association) {
-            $associationsChoices[$association->getName()] = $association->getId();
-        }
+        $choices = $this->choicesProvider->get();
 
         $builder
-            ->add('search', TextareaType::class, [
+            ->add('search', null, [
                 'label' => 'Szukaj',
                 'required' => false,
                 'attr' => [
@@ -48,7 +35,46 @@ class FiltersType extends AbstractType
                 'expanded' => true,
                 'required' => false,
                 'multiple' => true,
-                'choices' => $associationsChoices,
+                'choices' => $choices['associations'],
+                'attr' => [
+                    'class' => 'choices'
+                ]
+            ])
+            ->add('bowTypes', ChoiceType::class, [
+                'expanded' => true,
+                'required' => false,
+                'multiple' => true,
+                'choices' => $choices['bowTypes'],
+                'attr' => [
+                    'class' => 'choices'
+                ]
+            ])
+            ->add('rounds', ChoiceType::class, [
+                'expanded' => true,
+                'required' => false,
+                'multiple' => true,
+                'choices' => $choices['rounds'],
+                'attr' => [
+                    'class' => 'choices'
+                ]
+            ])
+            ->add('ages', ChoiceType::class, [
+                'expanded' => true,
+                'required' => false,
+                'multiple' => true,
+                'choices' => $choices['ages'],
+                'attr' => [
+                    'class' => 'choices'
+                ]
+            ])
+            ->add('organizers', ChoiceType::class, [
+                'expanded' => true,
+                'required' => false,
+                'multiple' => true,
+                'choices' => $choices['organizers'],
+                'attr' => [
+                    'class' => 'choices'
+                ]
             ])
             ->add('submit', SubmitType::class)
         ;

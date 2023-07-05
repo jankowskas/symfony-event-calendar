@@ -8,11 +8,18 @@
     width:400px;
     max-width:100%;
     flex-basis:0;
-    background-color: rgba(190, 108, 108, 0.7);
-    padding: 1rem;
+    background-color: #fff;
+    padding: 1.5rem;
+    margin-right: 1rem;
+
+    &>label {
+      font-weight:bold;
+      display:inline-block;
+      margin-bottom:1rem;
+    }
 
     form[name=filters] {
-      #filters_associations {
+      .choices {
         display:grid;
         grid-template-columns: 2rem auto;
         white-space: nowrap;

@@ -1,10 +1,10 @@
 body {
-  background-color: #ecedf1;
   color: #232325;
   font-family: sans-serif;
   box-sizing: border-box;
   padding:0;
   margin:0;
+  background-color: rgb(255 217 217);
 
   a {
     color:inherit;
@@ -12,17 +12,19 @@ body {
   }
 
   .intro {
-  display:flex;
+    display:flex;
     justify-content: center;
     margin: 1rem auto;
 
     &>div {
       padding:1rem;
-      background-color: rgba(190, 108, 108, 0.7);
-      color:white;
+      background-color:white;
+      color: #6b2e2e;
       text-align:center;
       display:inline-block;
       border-radius: 0.5rem;
+      width:700px;
+      max-width:100%;
     }
   }
 

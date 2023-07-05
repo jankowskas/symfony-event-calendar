@@ -14,11 +14,11 @@ class AgeFixtures extends Fixture
             'reference' => 'age.masters'
         ],
         [
-            'name' => 'bow_classes.adults',
+            'name' => 'ages.adults',
             'reference' => 'age.adults'
         ],
         [
-            'name' => 'bow_classes.children',
+            'name' => 'ages.children',
             'reference' => 'age.children'
         ],
     ];

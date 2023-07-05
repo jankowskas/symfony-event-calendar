@@ -33,9 +33,9 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
                 'round.outdoor_target'
             ],
             'bow_type_references' => [
-                'bow_type.olympic_recurve',
-                'bow_type.compound',
-                'bow_type.barebow'
+                'bow_types.olympic_recurve',
+                'bow_types.compound',
+                'bow_types.barebow'
             ],
         ],
     ];

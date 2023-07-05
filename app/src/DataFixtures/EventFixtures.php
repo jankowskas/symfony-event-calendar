@@ -38,6 +38,37 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
                 'bow_types.barebow'
             ],
         ],
+        [
+            'title' => 'Mistrzostwa Polski 3D',
+            'description' => 'Lorem Ipsum',
+            'published' => 1,
+            'startDate' => 'now',
+            'endDate' => 'tomorrow',
+            'anchors' => [
+                'https://www.google.com',
+                'https://www.google.com',
+                'https://www.google.com',
+            ],
+            'organizer_reference' => 'organizer.klawik',
+            'association_reference' => 'association.ifaa',
+            'contact_reference' => 'contact.pfaa',
+            'age_references' => [
+                'age.adults',
+                'age.children',
+                'age.masters',
+            ],
+            'round_references' => [
+                'round.3d',
+            ],
+            'bow_type_references' => [
+                'bow_types.olympic_recurve',
+                'bow_types.compound',
+                'bow_types.barebow',
+                'bow_types.traditional',
+                'bow_types.longbow',
+                'bow_types.horsebow',
+            ],
+        ],
     ];
 
     public function load(ObjectManager $manager): void

@@ -44,6 +44,13 @@ class ContactFixtures extends Fixture
             'website' => 'https://www.google.com',
             'reference' => 'contact.pzlucz',
         ],
+        [
+            'name' => 'PFAA',
+            'email' => 'kontakt@pfaa.pl',
+            'phone' => '123 321 123',
+            'website' => 'https://www.google.com',
+            'reference' => 'contact.pfaa',
+        ],
     ];
 
     public function load(ObjectManager $manager): void

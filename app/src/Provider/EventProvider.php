@@ -17,19 +17,6 @@ class EventProvider
 
     public function provide(?array $filters = []): array
     {
-        $criteria = [];
-
-        dump($filters);
-
-        if (isset($filters['search'])) {
-            $criteria['search'] = $filters['search'];
-        }
-
-        if (isset($filters['associations']) && is_array($filters['associations'])) {
-            $criteria['associations'] = $filters['associations'];
-        }
-
-
-        return $this->eventFinder->find($criteria);
+        return $this->eventFinder->find($filters);
     }
 }

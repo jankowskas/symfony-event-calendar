@@ -28,3 +28,22 @@ rounds:
   indoor_target: Halowe
   field: Field
   3d: 3D
+
+form:
+  title: Tytuł
+  startDate: Data rozpoczęcia
+  endDate: Data zakończenia
+  description: Opis wydarzenia
+  published: Opublikowany
+  anchorsList: Lista odnośników
+  contact: Kontakt
+  contactName: Nazwa kontaktu
+  phone: Telefon
+  email: E-mail
+  website: Strona internetowa
+  organizer: Organizator
+  rounds: Rundy
+  bowTypes: Kategorie sprzętowe
+  association: Federacja
+  ages: Kategorie wiekowe
+

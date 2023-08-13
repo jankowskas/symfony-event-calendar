@@ -20,10 +20,10 @@ class Event
     private ?string $title = null;
 
     #[ORM\Column(nullable: true)]
-    private ?\DateTimeImmutable $startDate = null;
+    private ?\DateTime $startDate = null;
 
     #[ORM\Column(nullable: true)]
-    private ?\DateTimeImmutable $endDate = null;
+    private ?\DateTime $endDate = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
@@ -89,24 +89,24 @@ class Event
         return $this;
     }
 
-    public function getStartDate(): ?\DateTimeImmutable
+    public function getStartDate(): ?\DateTime
     {
         return $this->startDate;
     }
 
-    public function setStartDate(?\DateTimeImmutable $startDate): self
+    public function setStartDate(?\DateTime $startDate): self
     {
         $this->startDate = $startDate;
 
         return $this;
     }
 
-    public function getEndDate(): ?\DateTimeImmutable
+    public function getEndDate(): ?\DateTime
     {
         return $this->endDate;
     }
 
-    public function setEndDate(?\DateTimeImmutable $endDate): self
+    public function setEndDate(?\DateTime $endDate): self
     {
         $this->endDate = $endDate;
 

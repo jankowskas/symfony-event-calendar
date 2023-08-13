@@ -4,7 +4,6 @@ body {
   box-sizing: border-box;
   padding:0;
   margin:0;
-  background-color: rgb(255 217 217);
 
   a {
     color:inherit;
@@ -33,6 +32,9 @@ body {
   }
 }
 
+@import "_general/buttons";
+@import "_general/forms";
+
+
 @import "_partials/header";
 @import "_partials/events";
-@import "_partials/footer";

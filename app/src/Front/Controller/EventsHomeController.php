@@ -8,9 +8,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class EventsController extends AbstractFrontController
+class EventsHomeController extends AbstractFrontController
 {
-    #[Route('/', name: 'front.events')]
+    #[Route('/', name: 'front.events.home')]
     public function home(Request $request, EventProvider $eventProvider): Response
     {
         $filtersForm = $this->createForm(FiltersType::class);

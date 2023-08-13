@@ -1,15 +1,10 @@
 <header>
-    <div class="page-logo">
-        <a href="{{ path('front.events') }}"><img alt="logo" src="{{ asset('assets/img/logo.png') }}"/></a>
-    </div>
-
     <nav id="main-nav">
         <ul>
-            <li><a href="{{ path('front.events') }}">{{ 'hud.events'|trans }}</a></li>
-            <li><a href="{{ path('front.events') }}">{{ 'hud.add_event'|trans }}</a></li>
-            <li><a href="{{ path('front.events') }}">{{ 'hud.terms_and_conditions'|trans }}</a></li>
-            <li><a href="{{ path('front.events') }}">{{ 'hud.privacy_policy'|trans }}</a></li>
+            <li><a href="{{ path('front.events.home') }}">{{ 'hud.events'|trans }}</a></li>
+            <li><a href="{{ path('front.events.create') }}">{{ 'hud.add_event'|trans }}</a></li>
+            <li><a href="{{ path('front.events.home') }}">{{ 'hud.terms_and_conditions'|trans }}</a></li>
+            <li><a href="{{ path('front.events.home') }}">{{ 'hud.privacy_policy'|trans }}</a></li>
         </ul>
     </nav>
-
 </header>

@@ -8,21 +8,10 @@
     </head>
     <body>
         {% include '_partials/header.html.twig' %}
-
-        <div class="intro">
-            <div>
-                <p>Witaj na stronie kalendarza, do którego można dodawać wszelakie wydarzenia łucznicze.</p>
-                <p>Aktualnie dodawaniem zajmuję się głównie ja, aczkolwiek projekt docelowo ma sam się utrzymywać.</p>
-                <p>Poza zbieraniem informacji o zawodach ta strona nie ma absolutnie żadnego innego celu. To nie ArcheryPoints, ani nie jest to Ianseo, zapisy nie są obsługiwane.</p>
-                <p>To ma być proste w obsłudze miejsce, gdzie każdy może szybko dodać zawody które albo sam organizuje, albo o których wie. Żeby była większa świadomość o ich egzystencji i pośrednio - aby wspomóc organizatorów.</p>
-            </div>
-        </div>
-
         <main class="{% if pageClass is defined %}{{ pageClass }}{% endif %}">
             {% block main %}
 
             {% endblock %}
         </main>
-        {% include '_partials/footer.html.twig' %}
     </body>
 </html>

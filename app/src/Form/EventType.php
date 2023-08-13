@@ -18,14 +18,17 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class EventType extends AbstractType
 {
     private OrganizerSubscriber $organizerSubscriber;
+    private TranslatorInterface $translator;
 
-    public function __construct(OrganizerSubscriber $organizerSubscriber)
+    public function __construct(OrganizerSubscriber $organizerSubscriber, TranslatorInterface $translator)
     {
         $this->organizerSubscriber = $organizerSubscriber;
+        $this->translator = $translator;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -64,25 +67,33 @@ class EventType extends AbstractType
             ->add('rounds', EntityType::class, [
                 'class' => Round::class,
                 'label' => 'form.rounds',
-                'choice_label' => 'name',
+                'choice_label' => function(Round $round) {
+                    return $this->translator->trans($round->getName());
+                },
                 'priority' => 1,
             ])
             ->add('bowTypes', EntityType::class, [
                 'class' => BowType::class,
                 'label' => 'form.bowTypes',
-                'choice_label' => 'name',
+                'choice_label' => function(BowType $bowType) {
+                    return $this->translator->trans($bowType->getName());
+                },
                 'priority' => 1,
             ])
             ->add('association', EntityType::class, [
                 'class' => Association::class,
                 'label' => 'form.association',
-                'choice_label' => 'name',
+                'choice_label' => function(Association $association) {
+                    return $this->translator->trans($association->getName());
+                },
                 'priority' => 1,
             ])
             ->add('ages', EntityType::class, [
                 'class' => Age::class,
                 'label' => 'form.ages',
-                'choice_label' => 'name',
+                'choice_label' => function(Age $age) {
+                    return $this->translator->trans($age->getName());
+                },
                 'priority' => 1,
             ])
             ->add('submit', SubmitType::class, [

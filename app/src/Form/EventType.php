@@ -61,7 +61,7 @@ class EventType extends AbstractType
                 'priority' => 1,
             ])
             ->add('contact', ContactType::class, [
-                'label' => 'form.contact',
+                'label' => 'form.eventContact',
                 'priority' => 1,
             ])
             ->add('rounds', EntityType::class, [
@@ -71,6 +71,7 @@ class EventType extends AbstractType
                     return $this->translator->trans($round->getName());
                 },
                 'priority' => 1,
+                'multiple' => true,
             ])
             ->add('bowTypes', EntityType::class, [
                 'class' => BowType::class,
@@ -79,6 +80,7 @@ class EventType extends AbstractType
                     return $this->translator->trans($bowType->getName());
                 },
                 'priority' => 1,
+                'multiple' => true,
             ])
             ->add('association', EntityType::class, [
                 'class' => Association::class,
@@ -95,6 +97,7 @@ class EventType extends AbstractType
                     return $this->translator->trans($age->getName());
                 },
                 'priority' => 1,
+                'multiple' => true,
             ])
             ->add('submit', SubmitType::class, [
                 'priority' => 0,

@@ -36,7 +36,7 @@ form:
   description: Opis wydarzenia
   published: Opublikowany
   anchorsList: Lista odnośników
-  contact: Kontakt
+  eventContact: Kontakt w sprawie zawodów
   contactName: Nazwa kontaktu
   phone: Telefon
   email: E-mail

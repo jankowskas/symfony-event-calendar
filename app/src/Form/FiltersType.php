@@ -25,7 +25,7 @@ class FiltersType extends AbstractType
 
         $builder
             ->add('search', null, [
-                'label' => 'Szukaj',
+                'label' => 'form.search',
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'Nazwa wydarzenia',
@@ -35,6 +35,7 @@ class FiltersType extends AbstractType
                 'expanded' => true,
                 'required' => false,
                 'multiple' => true,
+                'label' => 'form.association',
                 'choices' => $choices['associations'],
                 'attr' => [
                     'class' => 'choices'
@@ -44,6 +45,7 @@ class FiltersType extends AbstractType
                 'expanded' => true,
                 'required' => false,
                 'multiple' => true,
+                'label' => 'form.bowTypes',
                 'choices' => $choices['bowTypes'],
                 'attr' => [
                     'class' => 'choices'
@@ -53,6 +55,7 @@ class FiltersType extends AbstractType
                 'expanded' => true,
                 'required' => false,
                 'multiple' => true,
+                'label' => 'form.rounds',
                 'choices' => $choices['rounds'],
                 'attr' => [
                     'class' => 'choices'
@@ -62,6 +65,7 @@ class FiltersType extends AbstractType
                 'expanded' => true,
                 'required' => false,
                 'multiple' => true,
+                'label' => 'form.ages',
                 'choices' => $choices['ages'],
                 'attr' => [
                     'class' => 'choices'
@@ -71,6 +75,7 @@ class FiltersType extends AbstractType
                 'expanded' => true,
                 'required' => false,
                 'multiple' => true,
+                'label' => 'form.organizer',
                 'choices' => $choices['organizers'],
                 'attr' => [
                     'class' => 'choices'

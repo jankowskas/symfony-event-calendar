@@ -36,33 +36,41 @@ class EventType extends AbstractType
         $builder
             ->add('title', TextType::class, [
                 'label' => 'form.title',
+                'help' => '',
                 'priority' => 1,
+                'required' => true,
             ])
             ->add('startDate', DateTimeType::class, [
                 'widget' => 'single_text',
                 'label' => 'form.startDate',
                 'priority' => 1,
+                'required' => true,
             ])
             ->add('endDate', DateTimeType::class, [
                 'widget' => 'single_text',
                 'label' => 'form.endDate',
                 'priority' => 1,
+                'required' => false,
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'form.description',
                 'priority' => 1,
+                'required' => false,
             ])
             ->add('published', CheckboxType::class, [
                 'label' => 'form.published',
                 'priority' => 1,
+                'required' => false,
             ])
             ->add('anchors', TextAreaType::class, [
                 'label' => 'form.anchorsList',
                 'priority' => 1,
+                'required' => false,
             ])
             ->add('contact', ContactType::class, [
                 'label' => 'form.eventContact',
                 'priority' => 1,
+                'required' => false,
             ])
             ->add('rounds', EntityType::class, [
                 'class' => Round::class,
@@ -72,6 +80,8 @@ class EventType extends AbstractType
                 },
                 'priority' => 1,
                 'multiple' => true,
+                'required' => true,
+                'expanded' => true,
             ])
             ->add('bowTypes', EntityType::class, [
                 'class' => BowType::class,
@@ -81,6 +91,8 @@ class EventType extends AbstractType
                 },
                 'priority' => 1,
                 'multiple' => true,
+                'required' => true,
+                'expanded' => true,
             ])
             ->add('association', EntityType::class, [
                 'class' => Association::class,
@@ -89,6 +101,7 @@ class EventType extends AbstractType
                     return $this->translator->trans($association->getName());
                 },
                 'priority' => 1,
+                'required' => true,
             ])
             ->add('ages', EntityType::class, [
                 'class' => Age::class,
@@ -98,6 +111,8 @@ class EventType extends AbstractType
                 },
                 'priority' => 1,
                 'multiple' => true,
+                'required' => true,
+                'expanded' => true,
             ])
             ->add('submit', SubmitType::class, [
                 'priority' => 0,

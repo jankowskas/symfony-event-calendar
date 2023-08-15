@@ -11,7 +11,7 @@
 
 <div class="events-list">
     {% for event in events %}
-        <div>{{ event.id }} - {{ event.title }}</div>
+        <div><a href="{{ path('front.events.show', {'id': event.id}) }}">{{ event.id }} - {{ event.title }}</a></div>
     {% endfor %}
 </div>
 

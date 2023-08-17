@@ -53,6 +53,9 @@ class Event
     #[ORM\ManyToMany(targetEntity: Age::class)]
     private Collection $ages;
 
+    #[ORM\ManyToOne(inversedBy: 'events')]
+    private ?Series $series = null;
+
     public function __construct()
     {
         $this->rounds = new ArrayCollection();
@@ -241,6 +244,18 @@ class Event
     public function removeAge(Age $age): self
     {
         $this->ages->removeElement($age);
+
+        return $this;
+    }
+
+    public function getSeries(): ?Series
+    {
+        return $this->series;
+    }
+
+    public function setSeries(?Series $series): self
+    {
+        $this->series = $series;
 
         return $this;
     }

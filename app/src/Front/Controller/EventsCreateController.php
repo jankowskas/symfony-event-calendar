@@ -25,13 +25,12 @@ class EventsCreateController extends AbstractFrontController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && ($form->has('addOrganizer') && !$form->get('addOrganizer')->isClicked())) {
             $event = $form->getData();
 
             $this->entityManager->persist($event);
             $this->entityManager->flush();
         }
-
 
         return $this->render('/pages/create_event.html.twig', [
             'pageName' => $this->pageName(),

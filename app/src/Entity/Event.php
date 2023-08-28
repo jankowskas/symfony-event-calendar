@@ -37,7 +37,7 @@ class Event
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Contact $contact = null;
 
-    #[ORM\ManyToOne(inversedBy: 'events')]
+    #[ORM\ManyToOne()]
     private ?Organizer $organizer = null;
 
     #[ORM\ManyToMany(targetEntity: Round::class)]

@@ -11,7 +11,12 @@
 
 <div class="events-list">
     {% for event in events %}
-        <div><a href="{{ path('front.events.show', {'id': event.id}) }}">{{ event.id }} - {{ event.title }}</a></div>
+        <div>
+            <div>
+               <a href="{{ path('front.events.show', {'id': event.id}) }}">{{ event.id }} - {{ event.title }}</a>
+            </div>
+            {{ event.startDate|date("d-m-Y") }} {% if event.endDate is not null %} - {{ event.endDate|date("d-m-Y") }}{% endif %}
+        </div>
     {% endfor %}
 </div>
 

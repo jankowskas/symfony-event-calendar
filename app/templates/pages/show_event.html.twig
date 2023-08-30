@@ -3,6 +3,53 @@
 
 {% block main %}
 
-    {{ event.title }}
-
+    <div>{{ event.title }}</div>
+    <div>{{ event.startDate|date("d-m-Y") }}<br/>
+        {{ event.endDate|date("d-m-Y") }}
+    </div>
+    <div>{{ event.description }}</div>
+    <div>{{ event.published }}</div>
+    <div>
+        {% for anchor in event.anchors %}
+            <div>{{ anchor }}</div>
+        {% endfor %}
+    </div>
+    <div>
+        <div>{{ event.contact.name}}</div>
+        <div>{{ event.contact.phone}}</div>
+        <div>{{ event.contact.email}}</div>
+        <div>{{ event.contact.website}}</div>
+    </div>
+    <div>
+        <div>{{ event.organizer.name }}</div>
+        <div>{{ event.organizer.contact.name}}</div>
+        <div>{{ event.organizer.contact.phone}}</div>
+        <div>{{ event.organizer.contact.email}}</div>
+        <div>{{ event.organizer.contact.website}}</div>
+    </div>
+    <div>
+        {% for round in event.rounds %}
+            <div>{{ round.name|trans }}</div>
+        {% endfor %}
+    </div>
+    <div>
+        {% for bowType in event.bowTypes %}
+            <div>{{ bowType.name|trans }}</div>
+        {% endfor %}
+    </div>
+    <div>
+        {% for age in event.ages %}
+            <div>{{ age.name|trans }}</div>
+        {% endfor %}
+    </div>
+    <div>
+        <div>{{ event.association.name }}</div>
+    </div>
+    <div>
+        {% if event.series is not null %}
+            {% for serie in event.series.events %}
+                {{ serie.title }}
+            {% endfor %}
+        {% endif %}
+    </div>
 {% endblock %}

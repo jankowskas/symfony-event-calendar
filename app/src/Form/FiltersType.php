@@ -32,7 +32,7 @@ class FiltersType extends AbstractType
                 ],
             ])
             ->add('associations', ChoiceType::class, [
-                'expanded' => true,
+                'expanded' => false,
                 'required' => false,
                 'multiple' => true,
                 'label' => 'form.association',
@@ -42,7 +42,7 @@ class FiltersType extends AbstractType
                 ]
             ])
             ->add('bowTypes', ChoiceType::class, [
-                'expanded' => true,
+                'expanded' => false,
                 'required' => false,
                 'multiple' => true,
                 'label' => 'form.bowTypes',
@@ -52,7 +52,7 @@ class FiltersType extends AbstractType
                 ]
             ])
             ->add('rounds', ChoiceType::class, [
-                'expanded' => true,
+                'expanded' => false,
                 'required' => false,
                 'multiple' => true,
                 'label' => 'form.rounds',
@@ -62,7 +62,7 @@ class FiltersType extends AbstractType
                 ]
             ])
             ->add('ages', ChoiceType::class, [
-                'expanded' => true,
+                'expanded' => false,
                 'required' => false,
                 'multiple' => true,
                 'label' => 'form.ages',
@@ -72,7 +72,7 @@ class FiltersType extends AbstractType
                 ]
             ])
             ->add('organizers', ChoiceType::class, [
-                'expanded' => true,
+                'expanded' => false,
                 'required' => false,
                 'multiple' => true,
                 'label' => 'form.organizer',

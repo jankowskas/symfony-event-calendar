@@ -2,35 +2,15 @@
   display:flex;
   justify-content: space-between;
 
-
-
   .event-filters {
     width:400px;
     max-width:100%;
     flex-basis:0;
     background-color: #fff;
-    padding: 1.5rem;
     margin-right: 1rem;
-
-    &>label {
-      font-weight:bold;
-      display:inline-block;
-      margin-bottom:1rem;
-    }
-
-    form[name=filters] {
-      .choices {
-        display:grid;
-        grid-template-columns: 2rem auto;
-        white-space: nowrap;
-        user-select: none;
-      }
-    }
-
   }
 
   .events-list {
     flex-grow:1;
-
   }
 }
